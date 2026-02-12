@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>NovelPure | 极简阅读 · Clean Reading</title>
+    <style>
+        :root {
+            --bg: #fdfcfb;
+            --text: #333333;
+            --accent: #d4a373;
+            --card-bg: #ffffff;
+            --secondary-text: #666;
+            --chrome-blue: #4285f4;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in {
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+
+        /* ── Language Toggle ── */
+        .lang-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--card-bg);
+            padding: 6px 14px;
+            border-radius: 50px;
+            border: 1px solid #e0e0e0;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
+            cursor: pointer;
+            user-select: none;
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--secondary-text);
+            transition: box-shadow 0.3s ease;
+        }
+
+        .lang-toggle:hover {
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+        }
+
+        .lang-toggle .toggle-track {
+            position: relative;
+            width: 40px;
+            height: 22px;
+            background: #e0e0e0;
+            border-radius: 11px;
+            transition: background 0.3s ease;
+        }
+
+        .lang-toggle .toggle-track.active {
+            background: var(--accent);
+        }
+
+        .lang-toggle .toggle-thumb {
+            position: absolute;
+            top: 2px;
+            left: 2px;
+            width: 18px;
+            height: 18px;
+            background: #fff;
+            border-radius: 50%;
+            transition: transform 0.3s ease;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
+        }
+
+        .lang-toggle .toggle-track.active .toggle-thumb {
+            transform: translateX(18px);
+        }
+
+        .lang-label {
+            min-width: 18px;
+            text-align: center;
+        }
+
+        /* ── Header ── */
+        header {
+            padding: 80px 0 40px;
+            text-align: center;
+        }
+
+        .logo {
+            font-size: 60px;
+            margin-bottom: 20px;
+            display: inline-block;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .logo:hover {
+            transform: scale(1.1);
+        }
+
+        /* Warm glow for the icon */
+        .logo {
+            text-shadow: 0 10px 20px rgba(212, 163, 115, 0.3);
+        }
+
+        #privacy {
+            background: #ffffff;
+            border: 1px solid #e0e0e0;
+            border-left: 5px solid var(--accent);
+            border-radius: 12px;
+            padding: 40px;
+            margin-top: 40px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.02);
+        }
+
+        @media (min-width: 600px) {
+            .cta-group {
+                flex-direction: row !important;
+                justify-content: center;
+            }
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin: 0;
+            letter-spacing: -1px;
+        }
+
+        .tagline {
+            font-size: 1.1rem;
+            color: var(--secondary-text);
+            margin-top: 10px;
+        }
+
+        .intro-box {
+            background: rgba(212, 163, 115, 0.05);
+            padding: 25px;
+            border-radius: 15px;
+            margin-top: 30px;
+            font-size: 0.95rem;
+        }
+
+        /* ── Sections ── */
+        section {
+            padding: 50px 0;
+        }
+
+        h2 {
+            font-size: 1.8rem;
+            text-align: center;
+            margin-bottom: 30px;
+            position: relative;
+        }
+
+        h2 span {
+            display: block;
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 5px;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 20px;
+        }
+
+        .card {
+            background: var(--card-bg);
+            padding: 25px;
+            border-radius: 18px;
+            border: 1px solid #eee;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+        }
+
+        .step-num {
+            font-size: 1.4rem;
+            font-weight: 800;
+            color: var(--accent);
+            opacity: 0.6;
+            margin-bottom: 10px;
+        }
+
+        .card h3 {
+            margin: 10px 0;
+            font-size: 1.15rem;
+        }
+
+        .card p {
+            font-size: 0.9rem;
+            color: var(--secondary-text);
+            margin: 0;
+        }
+
+        /* ── FAQ ── */
+        .faq-group {
+            margin-top: 20px;
+        }
+
+        details {
+            background: #fff;
+            margin-bottom: 12px;
+            border-radius: 12px;
+            border: 1px solid #eee;
+        }
+
+        summary {
+            padding: 18px;
+            font-weight: 600;
+            cursor: pointer;
+            outline: none;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        details[open] summary {
+            border-bottom: 1px solid #f9f9f9;
+        }
+
+        details p {
+            padding: 18px;
+            color: var(--secondary-text);
+            margin: 0;
+            font-size: 0.9rem;
+            background: #fafafa;
+        }
+
+        /* ── Buttons ── */
+        .cta-group {
+            text-align: center;
+            padding: 40px 0;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            align-items: center;
+        }
+
+        .btn {
+            width: 100%;
+            max-width: 300px;
+            padding: 16px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .btn-chrome {
+            background: var(--chrome-blue);
+            color: #fff;
+        }
+
+        .btn-coffee {
+            background: #FFDD00;
+            color: #000;
+        }
+
+        .btn:hover {
+            transform: scale(1.02);
+            filter: brightness(1.05);
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px 0;
+            color: #bbb;
+            font-size: 0.75rem;
+            border-top: 1px solid #eee;
+            margin-top: 40px;
+        }
+
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 1.8rem;
+            }
+
+            header {
+                padding: 60px 0 30px;
+            }
+
+            .card {
+                padding: 20px;
+            }
+
+            .lang-toggle {
+                top: 12px;
+                right: 12px;
+                padding: 5px 10px;
+                font-size: 0.75rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Language Toggle -->
+    <div class="lang-toggle" id="langToggle" onclick="toggleLang()">
+        <span class="lang-label" id="langLabelLeft">中</span>
+        <div class="toggle-track" id="toggleTrack">
+            <div class="toggle-thumb"></div>
+        </div>
+        <span class="lang-label" id="langLabelRight">EN</span>
+    </div>
+
+    <div class="container fade-in">
+        <header>
+            <div class="logo">📖</div>
+            <h1>NovelPure</h1>
+            <p class="tagline" data-i18n="tagline"></p>
+
+            <div class="intro-box">
+                <p data-i18n="intro"></p>
+            </div>
+        </header>
+
+        <section id="usage">
+            <h2><span data-i18n="section_usage"></span></h2>
+            <div class="grid">
+                <div class="card">
+                    <div class="step-num">01.</div>
+                    <h3 data-i18n="step1_title"></h3>
+                    <p data-i18n="step1_desc"></p>
+                </div>
+                <div class="card">
+                    <div class="step-num">02.</div>
+                    <h3 data-i18n="step2_title"></h3>
+                    <p data-i18n="step2_desc"></p>
+                </div>
+                <div class="card">
+                    <div class="step-num">03.</div>
+                    <h3 data-i18n="step3_title"></h3>
+                    <p data-i18n="step3_desc"></p>
+                </div>
+            </div>
+        </section>
+
+        <section id="faq">
+            <h2><span data-i18n="section_faq"></span></h2>
+            <div class="faq-group">
+                <details>
+                    <summary data-i18n="faq1_q"></summary>
+                    <p data-i18n="faq1_a"></p>
+                </details>
+                <details>
+                    <summary data-i18n="faq2_q"></summary>
+                    <p data-i18n="faq2_a"></p>
+                </details>
+                <details>
+                    <summary data-i18n="faq3_q"></summary>
+                    <p data-i18n="faq3_a"></p>
+                </details>
+                <details>
+                    <summary data-i18n="faq4_q"></summary>
+                    <p data-i18n="faq4_a"></p>
+                </details>
+            </div>
+        </section>
+
+        <section id="privacy">
+            <h2 style="margin-bottom: 25px;"><span data-i18n="privacy_title"></span></h2>
+            <div style="max-width: 700px; margin: 0 auto; font-size: 0.9rem; color: var(--secondary-text);">
+                <div style="padding-left: 15px;">
+                    <p data-i18n="privacy_text"></p>
+                </div>
+            </div>
+        </section>
+
+        <div class="cta-group">
+            <a href="#" class="btn btn-chrome">
+                <span>🌐</span> <span data-i18n="btn_chrome"></span>
+            </a>
+            <a href="https://www.buymeacoffee.com/YOUR_USERNAME" class="btn btn-coffee" target="_blank">
+                <span>☕</span> <span data-i18n="btn_coffee"></span>
+            </a>
+        </div>
+
+        <footer>
+            &copy; 2026 NovelPure. Designed with ❤️ for Readers in Australia & Globally.
+        </footer>
+    </div>
+
+    <script>
+        const i18n = {
+            zh: {
+                tagline: 'Stay Focused. Read Pure.\n还原阅读最本真的样子。',
+                intro: 'NovelPure 是一款由程序员开发的极简插件，专为提升网页小说体验而生。它在敏感区隐退，在阅读时贴心，为您打造 Kindle 般的纯净视野。',
+                section_usage: '使用方法',
+                step1_title: '下载安装',
+                step1_desc: '从 Chrome 网上应用店 下载并安装插件。',
+                step2_title: '打开站点',
+                step2_desc: '访问小说站，进入任意章节页面。',
+                step3_title: '一键开启',
+                step3_desc: '点击图标开启净化，小说站将自动记忆。',
+                section_faq: '问与答',
+                faq1_q: '内容加载不全？',
+                faq1_a: '请尝试再次刷新页面。由于网络或异步加载波动，偶尔会出现提取不完整的情况，刷新可触发重新提取。',
+                faq2_q: '为什么在敏感网站无效？',
+                faq2_a: '出于安全考量，我们不运行在政府、银行、支付、新闻及社交媒体等敏感网站。插件在这些站点会自动静默，确保您的账号安全。',
+                faq3_q: '插件免费吗？',
+                faq3_a: '是的。这是我的个人兴趣项目，致力于为读者提供无广告的纯净环境。',
+                faq4_q: '如何支持开发？',
+                faq4_a: '如果 NovelPure 提升了您的阅读体验，欢迎通过 Buy Me a Coffee 请我喝杯咖啡！',
+                privacy_title: '隐私政策',
+                privacy_text: '我们深知隐私的重要性。NovelPure 仅在本地运行，不设任何后台服务器。我们承诺不收集、不上传、不转售任何用户信息。所有插件权限仅用于正文提取，确保您的浏览体验既纯净又安全。',
+                btn_chrome: '免费下载',
+                btn_coffee: '赞助支持',
+            },
+            en: {
+                tagline: 'Stay Focused. Read Pure.\nThe way reading was meant to be.',
+                intro: 'A minimalist extension crafted for readers. NovelPure stays dormant on sensitive sites and awakens for your novels, bringing a distraction-free experience to your browser.',
+                section_usage: 'How to Use',
+                step1_title: 'Install',
+                step1_desc: 'Download from the Chrome Web Store.',
+                step2_title: 'Open Site',
+                step2_desc: 'Visit any novel platform and open a chapter.',
+                step3_title: 'Activate',
+                step3_desc: 'Click the icon to purify. Novel sites are auto-saved.',
+                section_faq: 'Questions & Answers',
+                faq1_q: 'Content not loading correctly?',
+                faq1_a: 'Please try refreshing the page. Glitches may occur due to network or lazy-loading. A simple refresh will re-trigger the extraction engine.',
+                faq2_q: 'Why disabled on sensitive sites?',
+                faq2_a: 'For security, we do not run on Government, Banking, Payments, News, or Social Media. The extension stays dormant on these sensitive sites to protect your data.',
+                faq3_q: 'Is it free?',
+                faq3_a: 'Yes! This is a passion project built by a reader, for readers, to keep the web novel world clean.',
+                faq4_q: 'How can I support the development?',
+                faq4_a: 'If NovelPure improves your reading time, feel free to support the developer via "Buy Me a Coffee"!',
+                privacy_title: 'Privacy Policy',
+                privacy_text: 'Privacy is our priority. NovelPure operates entirely locally with no backend servers. We do not collect, transmit, or sell your personal data. All permissions are used strictly for content extraction, keeping your browsing experience safe and private.',
+                btn_chrome: 'Add to Chrome',
+                btn_coffee: 'Support the Dev',
+            }
+        };
+
+        let currentLang = localStorage.getItem('novelpure_lang') || 'zh';
+
+        function applyLang(lang) {
+            currentLang = lang;
+            localStorage.setItem('novelpure_lang', lang);
+            document.documentElement.lang = lang === 'zh' ? 'zh-CN' : 'en';
+            document.title = lang === 'zh'
+                ? 'NovelPure | 极简阅读 · Clean Reading'
+                : 'NovelPure | Clean Reading · Minimalist';
+
+            const strings = i18n[lang];
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (strings[key] !== undefined) {
+                    el.innerHTML = strings[key].replace(/\n/g, '<br>');
+                }
+            });
+
+            // Update toggle visual state
+            const track = document.getElementById('toggleTrack');
+            const left = document.getElementById('langLabelLeft');
+            const right = document.getElementById('langLabelRight');
+            if (lang === 'en') {
+                track.classList.add('active');
+                left.style.opacity = '0.4';
+                right.style.opacity = '1';
+            } else {
+                track.classList.remove('active');
+                left.style.opacity = '1';
+                right.style.opacity = '0.4';
+            }
+        }
+
+        function toggleLang() {
+            applyLang(currentLang === 'zh' ? 'en' : 'zh');
+        }
+
+        // Initialize on load
+        applyLang(currentLang);
+    </script>
+
+</body>
+
+</html>
