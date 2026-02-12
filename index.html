@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>NovelPure | 极简阅读 · Clean Reading</title>
+    <link rel="icon" href="favicon.png" type="image/png">
     <style>
         :root {
             --bg: #fdfcfb;
@@ -313,12 +314,35 @@
         }
 
         @media (max-width: 480px) {
+            .container {
+                padding: 0 16px;
+            }
+
             h1 {
                 font-size: 1.8rem;
+                line-height: 1.2;
+            }
+
+            .logo {
+                font-size: 48px;
+                margin-bottom: 12px;
             }
 
             header {
-                padding: 60px 0 30px;
+                padding: 50px 0 25px;
+            }
+
+            .tagline {
+                font-size: 1rem;
+            }
+
+            section {
+                padding: 35px 0;
+            }
+
+            h2 {
+                font-size: 1.5rem;
+                margin-bottom: 20px;
             }
 
             .card {
@@ -326,10 +350,39 @@
             }
 
             .lang-toggle {
-                top: 12px;
-                right: 12px;
-                padding: 5px 10px;
-                font-size: 0.75rem;
+                top: 10px;
+                right: 10px;
+                padding: 4px 10px;
+                font-size: 0.7rem;
+            }
+
+            .lang-toggle .toggle-track {
+                width: 34px;
+                height: 18px;
+                border-radius: 9px;
+            }
+
+            .lang-toggle .toggle-thumb {
+                width: 14px;
+                height: 14px;
+            }
+
+            .lang-toggle .toggle-track.active .toggle-thumb {
+                transform: translateX(16px);
+            }
+
+            details p {
+                padding: 15px;
+                font-size: 0.85rem;
+            }
+
+            footer {
+                padding: 30px 0;
+                font-size: 0.7rem;
+            }
+
+            footer div {
+                padding: 0 10px;
             }
         }
     </style>
@@ -397,6 +450,14 @@
                     <summary data-i18n="faq4_q"></summary>
                     <p data-i18n="faq4_a"></p>
                 </details>
+                <details>
+                    <summary data-i18n="faq5_q"></summary>
+                    <p data-i18n="faq5_a"></p>
+                </details>
+                <details>
+                    <summary data-i18n="faq6_q"></summary>
+                    <p data-i18n="faq6_a"></p>
+                </details>
             </div>
         </section>
 
@@ -419,7 +480,13 @@
         </div>
 
         <footer>
-            &copy; 2026 NovelPure. Designed with ❤️ for Readers in Australia & Globally.
+            <div style="margin-bottom: 12px;">
+                <span data-i18n="footer_contact"></span>
+                <i data-lucide="mail" style="width: 16px; vertical-align: middle; margin-right: 5px;"></i>
+                <a href="mailto:erenstdev@gmail.com"
+                    style="color: inherit; text-decoration: none;">erenstdev@gmail.com</a>
+            </div>
+            <div>&copy; 2026 NovelPure. Designed with ❤️ for Readers in Australia & Globally.</div>
         </footer>
     </div>
 
@@ -442,12 +509,17 @@
                 faq2_a: '出于安全考量，我们不运行在政府、银行、支付、新闻及社交媒体等敏感网站。插件在这些站点会自动静默，确保您的账号安全。',
                 faq3_q: '插件免费吗？',
                 faq3_a: '是的。这是我的个人兴趣项目，致力于为读者提供无广告的纯净环境。',
-                faq4_q: '如何支持开发？',
-                faq4_a: '如果 NovelPure 提升了您的阅读体验，欢迎通过 Buy Me a Coffee 请我喝杯咖啡！',
+                faq4_q: '如何翻页？',
+                faq4_a: 'PC 端支持左右键点击或屏幕边缘点击；移动端点击屏幕左右侧即可。更多选项请见“设置”。',
+                faq5_q: '如果插件在某个小说网站无法正常运行，该怎么办？',
+                faq5_a: '抱歉给您的阅读带来了困扰。请将网站链接及问题的简要描述发送至我的邮箱：<a href="mailto:erenstdev@gmail.com?subject=NovelPure Bug Report">erenstdev@gmail.com</a>。我会尽快进行排查并修复 Bug。感谢您的反馈，这对我不断完善 NovelPure 非常重要！✨',
+                faq6_q: '如何支持开发？',
+                faq6_a: '如果 NovelPure 提升了您的阅读体验，欢迎通过 Buy Me a Coffee 请我喝杯咖啡！',
                 privacy_title: '隐私政策',
                 privacy_text: '我们深知隐私的重要性。NovelPure 仅在本地运行，不设任何后台服务器。我们承诺不收集、不上传、不转售任何用户信息。所有插件权限仅用于正文提取，确保您的浏览体验既纯净又安全。',
                 btn_chrome: '免费下载',
                 btn_coffee: '赞助支持',
+                footer_contact: '遇到问题请联系我：',
             },
             en: {
                 tagline: 'Stay Focused. Read Pure.\nThe way reading was meant to be.',
@@ -466,16 +538,21 @@
                 faq2_a: 'For security, we do not run on Government, Banking, Payments, News, or Social Media. The extension stays dormant on these sensitive sites to protect your data.',
                 faq3_q: 'Is it free?',
                 faq3_a: 'Yes! This is a passion project built by a reader, for readers, to keep the web novel world clean.',
-                faq4_q: 'How can I support the development?',
-                faq4_a: 'If NovelPure improves your reading time, feel free to support the developer via "Buy Me a Coffee"!',
+                faq4_q: 'How to turn pages?',
+                faq4_a: 'On Desktop, use left/right click or screen edges. On Mobile, tap the screen sides. More options available in Settings.',
+                faq5_q: 'What should I do if the extension isn\'t working on a specific website?',
+                faq5_a: 'Sorry for the inconvenience! Please send the website URL and a brief description of the issue to <a href="mailto:erenstdev@gmail.com?subject=NovelPure Bug Report">erenstdev@gmail.com</a>. I’ll look into it and release a fix as soon as possible. Your feedback is invaluable in making NovelPure better for everyone! ✨',
+                faq6_q: 'How can I support the development?',
+                faq6_a: 'If NovelPure improves your reading time, feel free to support the developer via "Buy Me a Coffee"!',
                 privacy_title: 'Privacy Policy',
                 privacy_text: 'Privacy is our priority. NovelPure operates entirely locally with no backend servers. We do not collect, transmit, or sell your personal data. All permissions are used strictly for content extraction, keeping your browsing experience safe and private.',
                 btn_chrome: 'Add to Chrome',
                 btn_coffee: 'Support the Dev',
+                footer_contact: 'Contact me if you encounter any issues: ',
             }
         };
 
-        let currentLang = localStorage.getItem('novelpure_lang') || 'zh';
+        let currentLang = localStorage.getItem('novelpure_lang') || 'en';
 
         function applyLang(lang) {
             currentLang = lang;
@@ -514,6 +591,12 @@
 
         // Initialize on load
         applyLang(currentLang);
+    </script>
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+        lucide.createIcons();
     </script>
 
 </body>
