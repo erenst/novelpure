@@ -5,9 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="google-site-verification" content="lOxr3j_YvhYLGAQUu2Yg-i2BHumYp8f7eesoQuFHrwI" />
-    <title>NovelPure - Immersive Reading Mode for Web Novels | 网页小说沉浸式阅读器</title>
+    <title>NovelPure - Distraction-Free Web Novel Reader | 沉浸式网页小说阅读器</title>
     <meta name="description"
-        content="A clean, distraction-free, and privacy-first reading extension for web novel lovers. 让网页小说阅读回归纯净。">
+        content="NovelPure is a privacy-first, distraction-free reading extension for web novel lovers. Optimized for Royal Road, NovelFull, Novel Bin and major Chinese novel sites.">
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         .lang-cn {
@@ -20,153 +20,263 @@
 
 <body class="bg-gray-50 text-gray-900 font-sans">
 
+    <!-- NAV -->
     <nav class="flex justify-between items-center px-8 py-6 max-w-6xl mx-auto">
-        <div class="text-2xl font-bold text-blue-600 flex items-center tracking-tight">📖 NovelPure
-            
-        </div>
-        <div class="space-x-4 md:space-x-6 flex items-center text-sm md:text-base">
-            <a href="#features" class="hover:text-blue-600 font-medium">Features <span class="hidden md:inline">/ 功能</span></a>
-            <a href="#updates" class="hover:text-blue-600 font-medium">What's New <span class="hidden md:inline">/ 更新</span></a>
-            <a href="#faq" class="hover:text-blue-600 font-medium">FAQ <span class="hidden md:inline">/ 问答</span></a>
+        <div class="text-2xl font-bold text-blue-600 tracking-tight">📖 NovelPure</div>
+        <div class="space-x-6 flex items-center text-sm md:text-base">
+            <a href="#features" class="hover:text-blue-600 font-medium">Features / 功能</a>
+            <a href="#updates" class="hover:text-blue-600 font-medium">Updates / 更新</a>
+            <a href="#faq" class="hover:text-blue-600 font-medium">FAQ</a>
             <a href="https://buymeacoffee.com/novelpure" target="_blank"
-                class="bg-yellow-400 px-3 py-2 rounded-lg font-bold text-xs md:text-sm hover:bg-yellow-500 transition">☕
-                Support <span class="hidden md:inline">/ 支持我</span></a>
+                class="bg-yellow-400 px-3 py-2 rounded-lg font-bold text-xs md:text-sm hover:bg-yellow-500 transition">
+                ☕ Support / 支持
+            </a>
         </div>
     </nav>
 
-    <header class="max-w-4xl mx-auto text-center py-16 md:py-24 px-4">
+    <!-- HERO -->
+    <header class="max-w-4xl mx-auto text-center py-20 px-6">
         <h1 class="text-4xl md:text-6xl font-extrabold mb-6 leading-tight text-gray-800">
             Enjoy Web Novels Without <span class="text-blue-600">Distractions</span>
-            <div class="text-2xl md:text-3xl text-gray-400 font-normal mt-2">让网页小说阅读回归纯净</div>
+            <div class="text-2xl md:text-3xl text-gray-400 font-normal mt-3">
+                让网页小说阅读回归纯净
+            </div>
         </h1>
+
         <p class="text-lg md:text-xl text-gray-600 mb-10 max-w-2xl mx-auto leading-relaxed">
-            Automatically transforms cluttered novel pages into a clean, Kindle-like layout.
-            <span class="block text-base text-gray-400 mt-1">自动优化小说页面排版，打造类电子书阅读体验。</span>
+            Automatically cleans cluttered novel sites and re-renders them into a clean, Kindle-like layout.
+            <span class="block text-base text-gray-400 mt-2">
+                自动清理干扰元素，为您重塑如电子书般舒适的阅读体验。
+            </span>
         </p>
 
         <div class="flex flex-col sm:flex-row justify-center gap-4">
             <a href="https://chromewebstore.google.com/detail/gogeoeinhlmgnahnjiofnoopcocdhiia"
-                class="bg-blue-600 text-white px-8 py-4 rounded-xl text-lg font-bold hover:bg-blue-700 shadow-lg shadow-blue-200 transition text-center">
+                class="bg-blue-600 text-white px-8 py-4 rounded-xl text-lg font-bold hover:bg-blue-700 shadow-lg transition text-center">
                 Add to Chrome — It's Free
-                <span class="block text-xs font-normal opacity-80">立即添加到浏览器 — 免费使用</span>
+                <span class="block text-xs font-normal opacity-80">
+                    立即添加到浏览器 — 免费使用
+                </span>
             </a>
 
             <a href="supported-sites.html"
                 class="border border-gray-300 px-8 py-4 rounded-xl text-lg font-bold hover:bg-white transition">
-                Supported Sites
-                <span class="block text-xs font-normal text-gray-400">查看支持站点</span>
+                Supported Sites / 支持站点
             </a>
         </div>
 
         <p class="mt-6 text-sm text-gray-400">
-            Verified Official Version on Chrome Web Store.
-            <span class="block text-xs mt-1">通过 Chrome 应用商店官方审核认证版本。</span>
+            Official version available on Chrome Web Store.
+            <span class="block text-xs mt-1">官方发布版本已上线。</span>
         </p>
     </header>
+    <!-- SCREENSHOT COMPARISON SECTION -->
+    <section class="max-w-6xl mx-auto px-6 py-20">
 
-    <!-- What's New Section -->
-    <section id="updates" class="bg-white py-16 px-8 border-y border-gray-100">
-        <div class="max-w-4xl mx-auto text-center">
-            <h2 class="text-3xl font-bold mb-6">Recent Improvements</h2>
-            <p class="text-gray-500 mb-10">最新优化说明</p>
-            <div class="text-left max-w-2xl mx-auto space-y-4 text-gray-700">
-                <p>✅ Improved compatibility with supported novel platforms.</p>
-                <p>✅ Enhanced chapter navigation stability.</p>
-                <p>✅ Minor UI refinements and performance optimizations.</p>
-                <p class="text-sm text-gray-400">优化站点兼容性与章节跳转稳定性，并进行性能改进。</p>
-            </div>
+        <div class="text-center mb-14">
+            <h2 class="text-3xl md:text-4xl font-bold text-gray-800">
+                See the Difference
+            </h2>
+            <p class="text-gray-400 mt-3">
+                From cluttered pages to immersive reading.
+            </p>
+            <p class="text-sm text-gray-500 mt-2">
+                从杂乱页面到沉浸阅读体验
+            </p>
         </div>
-    </section>
 
+        <div class="bg-white rounded-3xl shadow-xl border border-gray-100 overflow-hidden">
+
+            <div class="grid md:grid-cols-2">
+
+                <!-- BEFORE -->
+                <div class="relative bg-gray-50">
+                    <img src="./image/before.png" alt="Before using NovelPure" class="w-full h-full object-cover">
+
+                    <div
+                        class="absolute top-6 left-6 bg-red-500 text-white px-4 py-1 rounded-full text-xs font-bold shadow">
+                        BEFORE
+                    </div>
+
+                    <div
+                        class="absolute bottom-6 left-6 bg-white/90 backdrop-blur px-4 py-2 rounded-xl text-sm text-gray-700 shadow">
+                        Messy Layout / 页面杂乱
+                    </div>
+                </div>
+
+                <!-- AFTER -->
+                <div class="relative border-l md:border-l-4 border-blue-500">
+                    <img src="./image/after.png" alt="After using NovelPure" class="w-full h-full object-cover">
+
+                    <div
+                        class="absolute top-6 left-6 bg-green-500 text-white px-4 py-1 rounded-full text-xs font-bold shadow">
+                        AFTER
+                    </div>
+
+                    <div
+                        class="absolute bottom-6 left-6 bg-white/90 backdrop-blur px-4 py-2 rounded-xl text-sm text-gray-700 shadow">
+                        Pure Reading Mode / 纯净阅读模式
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- Caption -->
+        <div class="text-center mt-10 max-w-2xl mx-auto">
+            <p class="text-gray-600 font-medium">
+                NovelPure removes distractions and keeps only what matters — your story.
+            </p>
+            <p class="text-sm text-gray-500 mt-2">
+                自动移除干扰元素，只保留最重要的内容——故事本身。
+            </p>
+        </div>
+
+    </section>
+    <!-- FEATURES -->
     <section id="features" class="bg-white py-20 px-8 border-y border-gray-100">
         <div class="max-w-6xl mx-auto grid md:grid-cols-3 gap-12 text-center">
+
             <div>
                 <div class="text-4xl mb-4 text-blue-600">✨</div>
-                <h3 class="text-xl font-bold">Immersive Mode</h3>
+                <h3 class="text-xl font-bold">Immersive Reader Mode</h3>
                 <p class="lang-cn font-bold text-gray-600">沉浸式阅读模式</p>
-                <p class="text-gray-500 text-sm mt-2">Extracts main text and re-renders it into a clean layout instantly.</p>
-                <p class="lang-cn">瞬间提取正文并重新排版，消除干扰元素。</p>
+                <p class="text-gray-500 text-sm mt-2">
+                    Extracts main content and removes intrusive ads, sidebars and popups instantly.
+                </p>
+                <p class="lang-cn">自动提取正文，屏蔽广告与干扰元素。</p>
             </div>
+
             <div>
                 <div class="text-4xl mb-4 text-blue-600">🌑</div>
                 <h3 class="text-xl font-bold">Customizable Themes</h3>
                 <p class="lang-cn font-bold text-gray-600">个性化主题</p>
-                <p class="text-gray-500 text-sm mt-2">Built-in dark mode, sepia mode, and eye-friendly themes.</p>
-                <p class="lang-cn">内置深色、护眼、羊皮纸等主题。</p>
+                <p class="text-gray-500 text-sm mt-2">
+                    Dark mode, sepia mode and adjustable typography for long reading sessions.
+                </p>
+                <p class="lang-cn">支持深色、护眼主题与字体调整。</p>
             </div>
+
             <div>
                 <div class="text-4xl mb-4 text-blue-600">🔒</div>
                 <h3 class="text-xl font-bold">Privacy First</h3>
                 <p class="lang-cn font-bold text-gray-600">隐私至上</p>
-                <p class="text-gray-500 text-sm mt-2">Everything happens locally. No tracking. No data collection.</p>
-                <p class="lang-cn">解析完全在本地完成。不收集数据，不追踪隐私。</p>
+                <p class="text-gray-500 text-sm mt-2">
+                    No tracking. No analytics. No remote servers. Everything runs locally.
+                </p>
+                <p class="lang-cn">不追踪、不收集、不上传数据。全部本地运行。</p>
             </div>
+
         </div>
     </section>
 
-    <!-- FAQ Section (Original Restored) -->
+    <!-- RECENT IMPROVEMENTS -->
+    <section id="updates" class="py-20 px-8 max-w-4xl mx-auto">
+        <h2 class="text-3xl font-bold text-center mb-4">Recent Improvements</h2>
+        <p class="text-center text-gray-400 mb-10">近期优化更新</p>
+
+        <ul class="space-y-6 text-gray-700 max-w-2xl mx-auto">
+            <li>• Improved compatibility with major novel platforms.
+                <div class="lang-cn">优化主流小说站点兼容性。</div>
+            </li>
+            <li>• Better multi-page chapter navigation detection.
+                <div class="lang-cn">改进多页章节识别逻辑。</div>
+            </li>
+            <li>• Enhanced layout performance for long-form content.
+                <div class="lang-cn">优化长篇阅读排版性能。</div>
+            </li>
+            <li>• Minor bug fixes and stability improvements.
+                <div class="lang-cn">修复若干小问题并提升稳定性。</div>
+            </li>
+        </ul>
+    </section>
+
+    <!-- FAQ -->
     <section id="faq" class="py-20 px-8 max-w-3xl mx-auto">
         <h2 class="text-3xl font-bold text-center mb-4">FAQ</h2>
         <p class="text-center text-gray-400 mb-12">Frequently Asked Questions / 常见问题</p>
+
+        <!-- Chrome Warning -->
         <div class="border-b border-gray-100 pb-6">
             <h4 class="font-bold text-lg">Why does Chrome show a "caution" or "data access" warning?</h4>
             <p class="lang-cn font-semibold">为什么 Chrome 会显示“安全警告”或“数据访问”提示？</p>
             <p class="text-gray-600 mt-2">
-                1. <b>Caution:</b> As a new developer, it takes time to build trust with Google's Safe Browsing.
-                2. <b>Data Access:</b> To re-render novel text and remove clutter, the extension must access the page content.
-                We <b>never</b> collect or transmit your data.
+                1. <b>Caution:</b> As a new developer, it takes time to build trust with Google's Safe Browsing system.
+                <br>
+                2. <b>Data Access:</b> To re-render novel text and remove clutter, the extension must access the page
+                content you are reading. NovelPure does <b>not</b> collect, store, or transmit your data.
             </p>
             <p class="lang-cn">
-                1. <b>安全警告：</b> 作为新开发者，建立 Google 信用体系需要时间。
-                2. <b>权限说明：</b> 为了重塑小说排版并消除干扰，插件必须访问页面内容。我们<b>绝不</b>收集或传输您的任何数据。
+                1. <b>安全警告：</b> 作为新开发者，建立 Google 安全浏览信任需要时间。
+                <br>
+                2. <b>权限说明：</b> 为了重塑小说排版并消除干扰，插件必须读取当前页面内容。
+                NovelPure <b>不会</b> 收集、存储或上传任何用户数据。
             </p>
         </div>
-        <div class="space-y-8">
-            <div class="border-b border-gray-100 pb-6">
-                <h4 class="font-bold text-lg">Does NovelPure collect my data?</h4>
-                <p class="lang-cn">No. All processing happens locally in your browser. We have no servers to store your data.</p>
-                <p class="lang-cn">不会。所有处理均在本地完成，我们不存储任何用户数据。</p>
-            </div>
-            <div class="border-b border-gray-100 pb-6">
-                <h4 class="font-bold text-lg">Why does it need website data permissions?</h4>
-                <p class="lang-cn">To re-render the novel text, the extension needs to access the content of the page you are reading.</p>
-                <p class="lang-cn">为了重新排版小说内容，扩展程序需要读取当前页面的文字信息。</p>
-            </div>
-            <div class="border-b border-gray-100 pb-6">
-                <h4 class="font-bold text-lg">Which sites are supported?</h4>
-                <p class="lang-cn">View the <a href="supported-sites.html" class="text-blue-600 underline">full list here</a>.</p>
-                <p class="lang-cn">支持主流小说站点，详见支持列表。</p>
-            </div>
-            <div class="border-b border-gray-100 pb-6">
-                <h4 class="font-bold text-lg">How to report a broken site?</h4>
-                <p class="lang-cn">If a site isn't loading correctly, please <a href="mailto:erenstdev@gmail.com" class="text-blue-600 underline">email us</a> or open a GitHub Issue.</p>
-                <p class="lang-cn">如果某个站点失效，请通过邮件或 GitHub 提交反馈。</p>
-            </div>
-            <div class="border-b border-gray-100 pb-6">
-                <h4 class="font-bold text-lg">How does NovelPure make money?</h4>
-                <p class="lang-cn">NovelPure is free. We may earn a small commission via affiliate links on this website (not in the extension).</p>
-                <p class="lang-cn">扩展是免费的。我们通过官网的联盟链接赚取微薄收入以维持开发。</p>
-            </div>
+
+        <div class="border-b border-gray-100 pb-6">
+            <h4 class="font-bold text-lg">Does NovelPure collect my data?</h4>
+            <p class="lang-cn">No. All processing happens locally. We have no remote servers.</p>
+            <p class="lang-cn">不会。所有处理均在本地完成，我们没有远程服务器。</p>
         </div>
+
+        <div class="border-b border-gray-100 pb-6">
+            <h4 class="font-bold text-lg">Is NovelPure safe to use?</h4>
+            <p class="lang-cn">Yes. The extension runs entirely inside your browser.</p>
+            <p class="lang-cn">是的。插件完全在浏览器内部运行。</p>
+        </div>
+
+        <div class="border-b border-gray-100 pb-6">
+            <h4 class="font-bold text-lg">Does it modify the original website?</h4>
+            <p class="lang-cn">No. It only re-renders content locally and does not interfere with the website.</p>
+            <p class="lang-cn">不会。仅在本地重塑页面显示，不会修改原网站。</p>
+        </div>
+
+        <div class="border-b border-gray-100 pb-6">
+            <h4 class="font-bold text-lg">How does NovelPure make money?</h4>
+            <p class="lang-cn">The extension is free. We may earn a small commission via affiliate links on this website
+                (not inside the extension).</p>
+            <p class="lang-cn">扩展完全免费。我们可能通过官网的联盟链接获得少量收入。</p>
+        </div>
+
     </section>
 
-    <!-- Original Footer Restored -->
-    <footer class="bg-gray-100 py-12 px-8 text-center border-t border-gray-200">
-        <div class="flex flex-wrap justify-center gap-4 text-sm text-gray-500 font-medium mb-6">
-            <a href="privacy.html" class="hover:text-blue-600 underline">Privacy Policy</a>
-            <a href="terms.html" class="hover:text-blue-600 underline">Terms of Use</a>
-            <a href="affiliate.html" class="hover:text-blue-600 underline">Affiliate Disclosure</a>
-            <a href="supported-sites.html" class="hover:text-blue-600 underline">Supported Sites</a>
-            <a href="mailto:erenstdev@gmail.com" class="hover:text-blue-600 underline">Contact</a>
+    <footer class="bg-gray-100 py-16 px-8 text-center border-t border-gray-200">
+
+        <!-- Navigation Links -->
+        <div class="flex flex-wrap justify-center gap-6 text-sm text-gray-600 font-medium mb-8">
+            <a href="privacy.html" class="hover:text-blue-600 transition">Privacy Policy</a>
+            <a href="terms.html" class="hover:text-blue-600 transition">Terms of Use</a>
+            <a href="affiliate.html" class="hover:text-blue-600 transition">Affiliate Disclosure</a>
+            <a href="supported-sites.html" class="hover:text-blue-600 transition">Supported Sites</a>
+            <a href="mailto:erenstdev@gmail.com" class="hover:text-blue-600 transition">Contact</a>
         </div>
-        <div class="max-w-4xl mx-auto space-y-4">
-            <p class="text-sm font-bold text-gray-500 italic">
-                "As an Amazon Associate, I earn from qualifying purchases."
-                <span class="block font-normal text-xs mt-1">作为亚马逊合作伙伴，我通过符合条件的购买赚取佣金。</span>
+
+        <!-- Brand Statement -->
+        <div class="max-w-2xl mx-auto mb-6">
+            <p class="text-sm font-semibold text-gray-700">
+                Turning cluttered pages into pure stories.
             </p>
-            <p class="text-xs text-gray-400">
-                © 2026 NovelPure. Designed with ❤️ in Adelaide, South Australia.
+            <p class="text-xs text-gray-500 mt-1">
+                让杂乱页面回归纯粹故事。
             </p>
+        </div>
+
+        <!-- Privacy Trust Line -->
+        <div class="text-xs text-gray-400 mb-6">
+            Privacy-first. No tracking. No data collection. All local.
+            <div class="mt-1">隐私优先 · 无追踪 · 不收集数据 · 本地运行</div>
+        </div>
+
+        <div class="text-xs text-gray-400">
+            © 2026 NovelPure.
+            <div class="mt-1">
+                Built for readers worldwide · 为全球读者而生
+            </div>
+            <div class="mt-1">
+                Crafted in Adelaide, Australia · 来自澳大利亚阿德莱德
+            </div>
         </div>
     </footer>
 
